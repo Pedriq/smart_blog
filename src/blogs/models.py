@@ -1,5 +1,6 @@
 from django.db import models
-from apps.users.models import User
+
+from users.models import User
 
 
 class Blog(models.Model):
@@ -10,7 +11,7 @@ class Blog(models.Model):
 
 class Article(models.Model):
     title = models.CharField(max_length=128)
-    content = models.TextField()
+    text = models.TextField()
     publication_date = models.DateTimeField(auto_now_add=True)
     for_blog = models.ForeignKey(to=Blog, on_delete=models.CASCADE)
 
