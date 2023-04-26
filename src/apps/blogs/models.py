@@ -6,6 +6,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=128)
     description = models.TextField(null=True, blank=True)
     date_of_creation = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False, default=0)
 
 
 class Article(models.Model):
@@ -13,6 +14,7 @@ class Article(models.Model):
     content = models.TextField()
     publication_date = models.DateTimeField(auto_now_add=True)
     for_blog = models.ForeignKey(to=Blog, on_delete=models.CASCADE)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False, default=0)
 
 
 class Rating(models.Model):
