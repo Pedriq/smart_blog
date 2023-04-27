@@ -1,7 +1,7 @@
+from django.urls import include, path
 from rest_framework import routers
-from django.urls import path, include
-from .blogs.views import BlogsViewSet, ArticlesViewSet
 
+from .blogs.views import ArticlesViewSet, BlogsViewSet
 
 router_for_blog = routers.SimpleRouter()
 router_for_blog.register(r'blog', BlogsViewSet)
