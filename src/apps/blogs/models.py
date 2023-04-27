@@ -1,4 +1,5 @@
 from django.db import models
+
 from apps.users.models import User
 
 
@@ -7,6 +8,9 @@ class Blog(models.Model):
     description = models.TextField(null=True, blank=True)
     date_of_creation = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False, default=0)
+
+    def __str__(self) -> str:
+        return f'{self.title}'
 
 
 class Article(models.Model):
