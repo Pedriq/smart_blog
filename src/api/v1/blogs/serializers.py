@@ -4,6 +4,14 @@ from apps.blogs.models import Article, Blog
 
 
 class BlogsSerializer(serializers.ModelSerializer):
+    """
+    Serializer for models Blog.
+
+    The owner field and date_of_creation are automatically enabled
+    (implementation for the owner in the create method, and for date_of_creation in the model itself)
+    and are available for change.
+    """
+    
     owner = serializers.CharField(read_only=True)
     date_of_creation = serializers.CharField(read_only=True)
     
@@ -19,6 +27,14 @@ class BlogsSerializer(serializers.ModelSerializer):
 
 
 class ArticlesSerializer(serializers.ModelSerializer):
+    """
+    The serializer for the Article model.
+
+    The owner and date_of_creation fields are filled in automatically
+    (implementation for owner in the create method, and for date_of_creation in the model itself)
+    and are not available for modification.
+    """
+    
     owner = serializers.CharField(read_only=True)
     publication_date = serializers.CharField(read_only=True)
     

@@ -145,7 +145,7 @@ REST_FRAMEWORK = {
 
 DJOSER = {
     'SERIALIZERS': {
-        'user_create': 'api.v1.auth.serializers.UserCreateSerializer',
+        'user_create': 'api.auth.serializers.UserCreateSerializer',
     },
     'USER_MODEL': 'apps.users.models.MyUser',
 }
