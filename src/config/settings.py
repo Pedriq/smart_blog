@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'apps.users.apps.UsersConfig',
     'apps.blogs.apps.BlogsConfig',
+    'apps.recommendation_system',
 
     'rest_framework',
     'rest_framework.authtoken',

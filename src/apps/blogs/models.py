@@ -42,6 +42,6 @@ class Rating(models.Model):
         (5, 'Отлично'),
     ]
 
-    article = models.ForeignKey(to=Blog, on_delete=models.CASCADE, null=False)
+    article = models.ForeignKey(to=Article, on_delete=models.CASCADE, null=False)
     user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False)
     rating = models.IntegerField(default=0, choices=ARTICLE_CHOICES)
