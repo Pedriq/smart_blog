@@ -40,8 +40,11 @@ INSTALLED_APPS = [
 
     'apps.users.apps.UsersConfig',
     'apps.blogs.apps.BlogsConfig',
+    'apps.recommendation_system',
 
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +133,20 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Users
 
 AUTH_USER_MODEL = 'users.User'
+
+# DRF settings
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+}
+
+# Djoser settings
+
+DJOSER = {
+    'SERIALIZERS': {
+        'user_create': 'api.auth.serializers.UserCreateSerializer',
+    },
+    'USER_MODEL': 'apps.users.models.MyUser',
+}
